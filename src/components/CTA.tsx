@@ -16,7 +16,7 @@ export function CTA() {
           </p>
           <div className="relative mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
-              href="mailto:hello@example.com"
+              href="mailto:solomon226@hotmail.com"
               className="inline-flex h-12 items-center justify-center rounded-full bg-cyan-500 px-8 text-sm font-semibold text-[#07080c] shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400"
             >
               Start a conversation

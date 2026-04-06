@@ -8,13 +8,13 @@ export function Footer() {
           © {new Date().getFullYear()} Taylor. All rights reserved.
         </p>
         <div className="flex gap-6 text-sm text-zinc-400">
-          <Link href="#" className="hover:text-white">
+          {/* <Link href="#" className="hover:text-white">
             LinkedIn
-          </Link>
-          <Link href="#" className="hover:text-white">
+          </Link> */}
+          <Link href="https://github.com/taylor-0225" className="hover:text-white">
             GitHub
           </Link>
-          <Link href="mailto:hello@example.com" className="hover:text-white">
+          <Link href="mailto:solomon226@hotmail.com" className="hover:text-white">
             Email
           </Link>
         </div>
