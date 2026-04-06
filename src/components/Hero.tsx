@@ -3,14 +3,16 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const ROTATING = ["Innovation", "Excellence", "Solutions"];
+const ROTATING = [" Innovation", " Excellence", " Solutions"];
+const typeWriteSpeed = 100;
 
 export function Hero() {
-  const [i, setI] = useState(0);
+  const [b, setB] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [displayText, setDisplayText] = useState('');
 
   useEffect(() => {
-    const t = setInterval(() => setI((n) => (n + 1) % ROTATING.length), 3200);
+    const t = setInterval(() => {setB((n) => (n + 1) % ROTATING.length); setDisplayText('')} , 3200);
     return () => clearInterval(t);
   }, []);
 
@@ -19,6 +21,22 @@ export function Hero() {
     return () => clearInterval(t);
   }, []);
 
+  useEffect(() => {
+    let i = 0;
+    console.log('txt', ROTATING[b])
+    const typeWriter = () => {
+      if ( i < ROTATING[b].length ) {
+        setDisplayText(prevTxt => prevTxt + ROTATING[b].charAt(i));
+        console.log(i, ROTATING[b].charAt(i))
+        setTimeout(typeWriter, typeWriteSpeed)
+      }
+      i++;
+    }
+
+    typeWriter()
+  }, [b])
+
+  
   return (
     <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -41,8 +59,8 @@ export function Hero() {
         <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-[1.08]">
           Engineering{" "}
           <span className="relative inline-block min-h-[1.15em] text-cyan-400">
-            <span key={ROTATING[i]} className="inline-block">
-              {ROTATING[i]}
+            <span key={displayText} className="inline-block">
+              {displayText}
             </span>
             <span
               className="ml-0.5 inline-block font-light text-cyan-300/90"
