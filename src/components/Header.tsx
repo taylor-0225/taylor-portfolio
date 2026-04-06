@@ -28,6 +28,22 @@ export function Header() {
             </Link>
           ))}
         </nav>
+        <details className="relative md:hidden">
+          <summary className="cursor-pointer list-none rounded-lg border border-white/10 px-3 py-1.5 text-sm text-zinc-300 [&::-webkit-details-marker]:hidden">
+            Menu
+          </summary>
+          <div className="absolute right-0 top-full z-10 mt-2 min-w-[10rem] rounded-xl border border-white/10 bg-[#0c0e14] py-2 shadow-xl">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block px-4 py-2 text-sm text-zinc-400 hover:bg-white/5 hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </details>
         <Link
           href="#contact"
           className="rounded-full bg-cyan-500/15 px-4 py-2 text-sm font-medium text-cyan-300 ring-1 ring-cyan-500/30 transition hover:bg-cyan-500/25"
