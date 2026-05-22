@@ -1,38 +1,30 @@
+import { Badge } from "./basic/badge";
+import { GitHubLogoIcon } from "@radix-ui/react-icons"
+import { AWSIcon, BashIcon, DockerIcon, ExpressIcon, GCPIcon, GitIcon, GitLabIcon, LinuxIcon, MongoDBIcon, MySQLIcon, NestIcon, NextIcon, NodeIcon, NuxtIcon, PostgreSQLIcon, ReactIcon, ReactNativeIcon, RedisIcon, TailwindIcon, TypescriptIcon, VueIcon } from "./svg";
+
 const groups = [
-  {
-    title: "Languages",
-    items: [
-      "JavaScript",
-      "TypeScript",
-      "Python",
-      "Go",
-      "SQL",
-    ],
-  },
-  {
-    title: "Frameworks",
-    items: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "Tailwind CSS",
-      "Fastify",
-    ],
-  },
-  {
-    title: "Cloud & DevOps",
-    items: [
-      "Docker",
-      "AWS",
-      "Kubernetes",
-      "CI/CD",
-      "Terraform",
-    ],
-  },
-  {
-    title: "Testing & quality",
-    items: ["Playwright", "Vitest", "ESLint", "Prettier"],
-  },
+  {key: "Git", icon: <GitIcon/>},
+  {key: "MongoDB", icon: <MongoDBIcon/>},
+  {key: "React Native", icon: <ReactNativeIcon/>},
+  {key: "Vue.js", icon: <VueIcon/>},
+  {key: "Linux", icon: <LinuxIcon/>},
+  {key: "Nuxt.js", icon: <NuxtIcon/>},
+  {key: "Redis", icon: <RedisIcon/>},
+  {key: "GitHub", icon: <GitHubLogoIcon/>},
+  {key: "Node.js", icon: <NodeIcon/>},
+  {key: "PostgreSQL", icon: <PostgreSQLIcon/>},
+  {key: "Tailwind CSS", icon: <TailwindIcon/>},
+  {key: "GitLab", icon: <GitLabIcon/>},
+  {key: "MySQL", icon: <MySQLIcon/>},
+  {key: "Nest.js", icon: <NestIcon/>},
+  {key: "React", icon: <ReactIcon/>},
+  {key: "Bash", icon: <BashIcon/>},
+  {key: "Express.js", icon: <ExpressIcon/>},
+  {key: "Next.js", icon: <NextIcon/>},
+  {key: "Docker", icon: <DockerIcon/>},
+  {key: "TypeScript", icon: <TypescriptIcon/>},
+  {key: "AWS", icon: <AWSIcon/>},
+  {key: "GCP", icon: <GCPIcon/>}
 ];
 
 export function TechStack() {
@@ -53,22 +45,14 @@ export function TechStack() {
           today.
         </p>
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-2">
+        <div className="mt-14 flex flex-wrap gap-2">
           {groups.map((g) => (
-            <div key={g.title}>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500">
-                {g.title}
-              </h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {g.items.map((item) => (
-                  <li key={item}>
-                    <span className="inline-flex rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-sm text-zinc-300">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Badge 
+              key={g.key}
+              variant="secondary"
+              className="gap-1.5 px-3 py-1.5 text-sm rounded-full bg-muted/60 text-muted-foreground border border-border" 
+              icon={g.icon}
+            >{g.key}</Badge>
           ))}
         </div>
 

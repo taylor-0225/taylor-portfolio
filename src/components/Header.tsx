@@ -9,11 +9,12 @@ const nav = [
 
 export function Header() {
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-[#07080c]/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <div className="hidden md:block fixed z-[99999] right-0 left-0 top-0 px-6 transition-transform duration-300">
+      <header className="w-full flex justify-between items-center mx-auto py-3 px-7 top-2.5 max-w-[768px] bg-muted/50 backdrop-blur-md rounded-full border border-border shadow-lg mt-6">
+      
         <Link
           href="/"
-          className="text-sm font-semibold tracking-tight text-white sm:text-base"
+          className="font-mono text-base font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
         >
           Taylor<span className="text-cyan-400">.</span>
         </Link>
@@ -22,7 +23,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-zinc-400 transition-colors hover:text-white"
+              className="text-sm text-white-400 transition-colors hover:text-primary"
             >
               {item.label}
             </Link>
@@ -44,13 +45,15 @@ export function Header() {
             ))}
           </div>
         </details>
-        <Link
+        {/* <Link
           href="#contact"
           className="rounded-full bg-cyan-500/15 px-4 py-2 text-sm font-medium text-cyan-300 ring-1 ring-cyan-500/30 transition hover:bg-cyan-500/25"
         >
           Let&apos;s talk
-        </Link>
-      </div>
+        </Link> */}
+      
     </header>
+    </div>
+    
   );
 }

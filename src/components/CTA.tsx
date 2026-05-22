@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "./basic/button";
 
 export function CTA() {
   return (
@@ -15,18 +16,18 @@ export function CTA() {
             I would love to hear what you are building.
           </p>
           <div className="relative mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link
-              href="mailto:solomon226@hotmail.com"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-cyan-500 px-8 text-sm font-semibold text-[#07080c] shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400"
-            >
-              Start a conversation
-            </Link>
-            <Link
-              href="#services"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-white/20 px-8 text-sm font-medium text-white transition hover:bg-white/10"
-            >
-              Learn about services
-            </Link>
+            <Button>
+              <a href="mailto:solomon226@hotmail.com">
+                Start a conversation
+              </a>              
+            </Button>                          
+            
+            <Button variant="secondary">
+              <a href="#services">
+                  Learn about services
+              </a>            
+            </Button>
+            
           </div>
         </div>
       </div>

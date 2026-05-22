@@ -1,13 +1,64 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
-  --background: #07080c;
-  --foreground: #f4f4f5;
+	--font-sans: var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif);
+	--background: oklch(1 0 0);
+	--foreground: #1f1f1f;
+	--card: oklch(1 0 0);
+	--card-foreground: #1f1f1f;
+	--popover: oklch(1 0 0);
+	--popover-foreground: #1f1f1f;
+	--primary: #f97316;
+	--primary-foreground: #ffffff;
+	--secondary: oklch(0.967 0.001 286.375);
+	--secondary-foreground: oklch(0.21 0.006 285.885);
+	--muted: oklch(0.967 0.001 286.375);
+	--muted-foreground: oklch(0.552 0.016 285.938);
+	--accent: oklch(0.967 0.001 286.375);
+	--accent-foreground: oklch(0.21 0.006 285.885);
+	--destructive: oklch(0.577 0.245 27.325);
+	--destructive-foreground: oklch(0.577 0.245 27.325);
+	--border: oklch(0.92 0.004 286.32);
+	--input: oklch(0.92 0.004 286.32);
+	--ring: oklch(0.871 0.006 286.286);
+	--radius: 0.625rem;
+}
+
+.dark {
+	--background: #0f0f0f;
+	--foreground: oklch(0.98 0 0);
+	--card: #181818;
+	--card-foreground: oklch(0.98 0 0);
+	--popover: #181818;
+	--popover-foreground: oklch(0.98 0 0);
+	--primary: #f97316;
+	--primary-foreground: #ffffff;
+	--secondary: oklch(0.25 0.006 286);
+	--secondary-foreground: oklch(0.98 0 0);
+	--muted: oklch(0.23 0.004 286);
+	--muted-foreground: oklch(0.7 0.014 286);
+	--accent: oklch(0.25 0.006 286);
+	--accent-foreground: oklch(0.98 0 0);
+	--destructive: oklch(0.4 0.14 25);
+	--destructive-foreground: oklch(0.63 0.23 25);
+	--border: oklch(0.28 0.006 286);
+	--input: oklch(0.28 0.006 286);
+	--ring: oklch(0.4 0.015 286);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-destructive: var(--destructive);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+
   --font-sans: var(--font-portfolio), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -19,4 +70,164 @@ body {
 ::selection {
   background: rgba(34, 211, 238, 0.25);
   color: #fafafa;
+}
+
+@layer base {
+	* {
+		/* @apply border-border outline-ring/50; */
+	}
+	body {
+		/* @apply bg-background text-foreground font-sans antialiased; */
+	}
+}
+
+@property
+--tw-ring-offset-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+}
+
+--tw-inset-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+}
+
+--tw-ring-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+}
+
+--tw-drop-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+}
+
+--orb-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+--tw-outline-style {
+    syntax: "*";
+    inherits: false;
+    initial-value: solid;
+}
+
+--tw-inset-ring-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+}
+
+--tw-translate-z {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0;
+}
+
+--tw-gradient-via {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000;
+}
+
+--tw-translate-y {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0;
+}
+
+--tw-inset-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+}
+
+--tw-ring-offset-color {
+    syntax: "*";
+    inherits: false;
+    initial-value: #fff;
+}
+
+--tw-content {
+    syntax: "*";
+    inherits: false;
+    initial-value: "";
+}
+
+--tw-gradient-from {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000;
+}
+
+--tw-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+}
+
+--tw-gradient-to {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #0000;
+}
+
+--tw-divide-y-reverse {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0;
+}
+
+--tw-border-style {
+    syntax: "*";
+    inherits: false;
+    initial-value: solid;
+}
+
+--tw-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000;
+}
+
+--tw-translate-x {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0;
+}
+
+--tw-ring-offset-width {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0;
+}
+
+--tw-gradient-via-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 50%;
+}
+
+--tw-gradient-to-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 100%;
+}
+
+--tw-space-y-reverse {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0;
+}
+
+--tw-gradient-from-position {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 0%;
 }

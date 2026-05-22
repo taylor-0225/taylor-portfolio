@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Badge, badgeVariants } from "@/components/basic/badge"
+import { Typography } from "@/components/basic/typography";
+import { Button } from "./basic/button";
 
 const ROTATING = [" Innovation", " Excellence", " Solutions"];
 const typeWriteSpeed = 100;
@@ -53,41 +56,56 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs font-medium uppercase tracking-widest text-zinc-400">
+        {/* <p className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs font-medium uppercase tracking-widest text-zinc-400">
           Enterprise software &amp; full-stack development
-        </p>
-        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-[1.08]">
-          Engineering{" "}
-          <span className="relative inline-block min-h-[1.15em] text-cyan-400">
-            <span key={displayText} className="inline-block">
-              {displayText}
-            </span>
-            <span
-              className="ml-0.5 inline-block font-light text-cyan-300/90"
-              style={{ opacity: showCursor ? 1 : 0 }}
-            >
-              |
-            </span>
+        </p> */}
+        <Badge className="border-white/10 font-medium uppercase text-zinc-400" variant="outline">
+          Enterprise software &amp; full-stack development
+        </Badge>
+        {/* <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-[1.08]">
+          Engineering{" "}          
+        </h1> */}
+        <Typography className="sm:text-5xl lg:text-6xl" variant="h1">
+            Engineering{" "}
+            <span className="relative inline-block min-h-[1.15em] text-cyan-400">
+              {/* <Typography className="inline-block" variant="h1">
+                {displayText}
+              </Typography> */}
+              <span
+                className="ml-0.5 inline-block font-light text-cyan-300/90"
+                style={{ opacity: showCursor ? 1 : 0 }}
+              >
+                |
+              </span>
           </span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
-          Transform legacy systems and build modern solutions with focused
-          technical expertise. From APIs to interfaces, I deliver reliable
-          software that moves your product forward.
-        </p>
+        </Typography>
+        <Typography className="mt-6 max-w-2xl text-zinc-400 sm:text-xl" variant="p">
+            Transform legacy systems and build modern solutions with focused
+            technical expertise. From APIs to interfaces, I deliver reliable
+            software that moves your product forward.
+        </Typography>
+        {/* <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
+          
+        </p> */}
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-          <Link
+          <Button className="px-8 text-sm font-semibold bg-primary">
+            <a href="#services">Explore services</a>              
+          </Button>
+          {/* <Link
             href="#services"
             className="inline-flex h-12 items-center justify-center rounded-full bg-cyan-500 px-8 text-sm font-semibold text-[#07080c] shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-400"
           >
             Explore services
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             href="#portfolio"
             className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 text-sm font-medium text-white transition hover:border-white/25 hover:bg-white/10"
           >
             View portfolio
-          </Link>
+          </Link> */}
+          <Button className="px-8 text-sm font-semibold" variant="secondary">
+            <a href="#services">View portfolio</a>              
+          </Button>
         </div>
       </div>
     </section>

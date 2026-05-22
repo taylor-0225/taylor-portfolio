@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import { ReactElement, useEffect, useState } from "react";
+import { DockerIcon, LaravelIcon, MySQLIcon, NodeIcon, PHPIcon, PostgreSQLIcon, ReactIcon, TailwindIcon, TypescriptIcon } from "./svg";
+import { ArrowTopRightIcon, CrossCircledIcon } from "@radix-ui/react-icons";
+import { Badge } from "./basic/badge";
+import { Typography } from "./basic/typography";
+import { Button } from "./basic/button";
 
 type Project = {
   id: string;
@@ -8,84 +14,128 @@ type Project = {
   name: string;
   year: number;
   weeks: number;
+  image: {
+    src: string;
+    alt: string;
+  };
+  url?: string;
   challenge: string;
   solution: string;
   results: string[];
-  stack: string[];
+  stack: {tech: string, icon: ReactElement | null}[];
 };
 
 const projects: Project[] = [
   {
-    id: "ecommerce-analytics",
+    id: "ecommerce",
     badge: "E-commerce",
-    name: "E-commerce Analytics Platform",
+    name: "Vinchase - The Best Online Store in Europe",
     year: 2022,
     weeks: 12,
+    image: {
+      src: "/projects/ecommerce.png",
+      alt: "Service detail modal UI screenshot",
+    },
     challenge:
       "A major Singapore marketplace needed a real-time insights dashboard processing thousands of daily transactions.",
     solution:
-      "Built a reactive analytics platform using React and optimised database queries for real-time reporting.",
+      "",
     results: [
       "Real-time analytics across key metrics",
       "3k+ daily transactions processed smoothly",
       "Sub-second responsive query times",
       "99.9% uptime on core dashboards",
     ],
-    stack: ["React", "TypeScript", "Storybook", "Node.js"],
+    stack: [
+      {tech: "React", icon: <ReactIcon/>},
+      {tech: "TypeScript", icon: <TypescriptIcon/>},      
+      {tech: "Node.js", icon: <NodeIcon/>}      
+    ],
   },
   {
-    id: "vehicle-rental",
-    badge: "Automotive",
-    name: "Vehicle Rental Platform Enhancement",
+    id: "real-estate-agency",
+    badge: "Real Estate",
+    name: "Cooper Brouard | Trusted Estate Agents in Guernsey",
     year: 2025,
     weeks: 16,
+    url: "https://www.cooperbrouard.com/",
+    image: {
+      src: "/projects/real_estate_agency.png",
+      alt: "Project case study UI screenshot",
+    },
     challenge:
       "A vehicle rental company's custom system managing cars, vans, and HGVs needed modernisation and new booking features.",
     solution:
-      "Enhanced the IRIS system with a modern JavaScript frontend and optimised booking algorithms.",
+      "Cooper Brouard is Guernsey’s leading estate agency, offering expert guidance in residential sales, property lettings, and open market transactions. With a reputation built on integrity, local knowledge, and exceptional service, the company has been connecting clients with the perfect homes for over two decades. Specializing in both Open Market and Local Market properties, Cooper Brouard provides tailored solutions to meet the diverse needs of buyers, sellers, and landlords. Their deep understanding of Guernsey’s property laws and neighborhoods ensures clients receive accurate, up-to-date advice every step of the way.",
     results: [
       "40% increase in completed bookings",
       "Real-time fleet availability",
       "Fully mobile-responsive flows",
       "Automated invoicing pipeline",
     ],
-    stack: ["Node.js", "PostgreSQL", "Docker", "Playwright"],
+    stack: [
+      {tech: "Node.js", icon: <NodeIcon/>},
+      {tech: "PostgreSQL", icon: <PostgreSQLIcon/>},
+      {tech: "Docker", icon: <DockerIcon/>},      
+    ],
   },
   {
-    id: "onboarding-crm",
-    badge: "Hospitality",
-    name: "Automated Onboarding CRM",
+    id: "yoga_studio_landing",
+    badge: "Landing Page",
+    name: "Luxury Dubai Yoga Studio - Webflow Web Application",
     year: 2024,
     weeks: 8,
+    image: {
+      src: "/projects/yoga_studio_landing.png",
+      alt: "Project case study UI screenshot",
+    },
+    url: "https://www.samsaratribe.com/",
     challenge:
       "A national inn management company needed to reduce landlord onboarding time from weeks to days.",
     solution:
-      "Rapid development of a custom CRM using the TALL stack with automated document processing.",
+      "The Samsara Tribe website is dedicated to a yoga community hub that combines ancient yoga wisdom with modern holistic practices. It offers a range of yoga classes, membership plans with unlimited class access, and an app for easy booking and management of classes. The site also highlights their team of passionate yoga instructors and promotes wellness through community engagement. Our team designed this website in Figma including the style guide and developed it on Webflow, integrating third-party tools for class bookings and management to enhance functionality and user experience",
     results: [
       "95% reduction in onboarding time",
       "Automated compliance checks",
       "Digital contract management",
       "Real-time status tracking",
     ],
-    stack: ["Laravel", "Livewire", "Alpine.js", "Tailwind", "Filament"],
+    stack: [
+      {tech: "PHP", icon: <PHPIcon/>},
+      {tech: "Laravel", icon: <LaravelIcon/>},
+      {tech: "Tailwind", icon: <TailwindIcon/>},
+      {tech: "MySQL", icon: <MySQLIcon/>},      
+    
+    ],
   },
   {
-    id: "nft-polkadot",
-    badge: "Web3",
-    name: "NFT marketplace on Polkadot",
-    year: 2022,
+    id: "brand-landing-page",
+    badge: "Landing Page",
+    name: "Luxury Coffee Brand B2C/B2B on Webflow",
+    year: 2021,
     weeks: 12,
+    url: "https://www.flyingpumas.com/",
+    image: {
+      src: "/projects/flyingpumas.png",
+      alt: "Project case study UI screenshot",
+    },
     challenge:
       "The Polkadot ecosystem needed an NFT marketplace for creators and collectors with a smooth UX.",
     solution:
-      "Developed an NFT marketplace on the Polkadot network with wallet integration and listing flows.",
+      "The Flying Pumas website showcases their specialty coffee business located in the Volcan region of Panama, emphasizing a harmonious blend of premium coffee production with environmental sustainability. The website, designed on Figma and developed on Webflow, features dynamic scroll animations and parallax effects to enhance user engagement. It integrates HubSpot for efficient lead generation and sampler request, supporting the company's outreach and customer relationship management. This setup provides an immersive online experience that aligns with their commitment to quality and ecological responsibility.",
     results: [
       "Strong community engagement growth",
       "Expanded holder participation",
       "Stable listing and trade flows",
       "Ongoing feature iteration with feedback",
     ],
-    stack: ["Vue.js", "TypeScript", "Vue 3", "Tailwind CSS"],
+    stack: [
+      {tech: "Javascript", icon: null},
+      {tech: "HTML", icon: null},
+      {tech: "CSS", icon: null},
+      {tech: "Python", icon: null},
+      {tech: "PostgreSQL", icon: null},      
+    ],
   },
 ];
 
@@ -148,6 +198,16 @@ function ProjectDetailModal({
         />
 
         <div className="relative px-6 py-8 sm:px-10 sm:py-10">
+          <div className="absolute right-0 top-0 pt-8 pr-6">
+            <Button                
+                variant="secondary"
+                onClick={onClose}                
+                className="w-full text-sm font-medium text-slate-200 transition hover:bg-white/10"
+              >
+                Close
+              </Button>
+          </div>
+          
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <span className="inline-flex rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-xs font-medium uppercase tracking-wide text-slate-300">
@@ -163,31 +223,48 @@ function ProjectDetailModal({
                 {project.year} · {project.weeks} weeks
               </p>
             </div>
-            <button
-              type="button"
-              onClick={onClose}
-              className="shrink-0 rounded-full border border-white/15 bg-white/[0.05] px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10"
-            >
-              Close
-            </button>
+            
+            <div className="flex items-center gap-3">
+              {project.url ? (
+                <Button className="px-8 text-sm font-semibold bg-primary">
+                  <a href={project.url} target="_blank">View live</a>
+                </Button>
+              ) : null}
+              
+            </div>
           </div>
 
           <div className="mt-10 space-y-8">
-            <section>
+            {project.image ? (
+              <div className="overflow-hidden rounded-2xl border border-slate-800/80 bg-black/20">
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src={project.image.src}
+                    alt={project.image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 768px, (min-width: 640px) 80vw, 100vw"
+                    priority
+                  />
+                </div>
+              </div>
+            ) : null}
+
+            {/* <section>
               <h3 className="text-sm font-semibold text-white">Challenge</h3>
               <div className="mt-3 rounded-xl border border-slate-800/90 border-l-4 border-l-sky-500 bg-slate-900/70 px-4 py-4 text-sm leading-relaxed text-slate-100">
                 {project.challenge}
               </div>
-            </section>
+            </section> */}
 
             <section>
-              <h3 className="text-sm font-semibold text-white">Solution</h3>
+              <h3 className="text-sm font-semibold text-white">Description</h3>
               <div className="mt-3 rounded-xl border border-emerald-900/50 border-l-4 border-l-emerald-500 bg-emerald-950/35 px-4 py-4 text-sm leading-relaxed text-slate-100">
                 {project.solution}
               </div>
             </section>
 
-            <section>
+            {/* <section>
               <h3 className="text-sm font-semibold text-white">Results</h3>
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {project.results.map((line) => (
@@ -200,22 +277,23 @@ function ProjectDetailModal({
                   </div>
                 ))}
               </div>
-            </section>
+            </section> */}
 
             <section>
               <h3 className="text-sm font-semibold text-white">
                 Technology Stack
               </h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-slate-700/80 bg-slate-900/90 px-3 py-1.5 text-xs font-medium text-slate-100"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              <div className="mt-5 flex flex-wrap gap-2">
+                  {project.stack.map((s) => (
+                    <Badge
+                      key={s.tech}
+                      icon={s.icon}
+                      className="rounded-full border bg-muted/60 text-muted-foreground border border-border px-2.5 py-1"
+                    >
+                      {s.tech}
+                    </Badge>
+                  ))}
+                </div>
             </section>
           </div>
         </div>
@@ -227,9 +305,16 @@ function ProjectDetailModal({
 export function PortfolioTeaser() {
   const [active, setActive] = useState<Project | null>(null);
 
+  const onCardKeyDown = (e: React.KeyboardEvent, p: Project) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setActive(p);
+    }
+  };
+
   return (
     <section id="portfolio" className="border-t border-white/5 py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto pb-2 w-full flex flex-col">
         <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400/90">
           Portfolio
         </p>
@@ -241,30 +326,77 @@ export function PortfolioTeaser() {
           the full story.
         </p>
 
-        <ul className="mt-12 space-y-4">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((p) => (
-            <li key={p.id}>
-              <button
-                type="button"
-                onClick={() => setActive(p)}
-                className="flex w-full flex-col justify-between gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-6 py-5 text-left transition hover:border-cyan-500/25 hover:bg-white/[0.04] sm:flex-row sm:items-center"
-              >
-                <div>
-                  <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
-                    {p.badge}
-                  </span>
-                  <span className="mt-1 block font-medium text-white">
-                    {p.name}
-                  </span>
+            <article
+              key={p.id}
+              onClick={() => setActive(p)}
+              onKeyDown={(e) => onCardKeyDown(e, p)}
+              role="button"
+              tabIndex={0}
+              className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] text-left transition hover:border-cyan-500/25 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-cyan-500/40"
+            >
+              {/* card header section   */}
+              <div className="p-6 relative overflow-clip bg-gradient-to-b transition-colors duration-300 from-card to-transparent group-hover:from-(--project-color)">
+                <div className="transition-transform duration-300 group-hover:-translate-y-2">
+                  <div className="overflow-hidden rounded-md border border-border bg-card shadow-sm">
+                    <div className="flex items-center gap-1.5 border-b border-border bg-muted/50 px-2 py-1"> 
+                    <div className="flex gap-1"> 
+                      <div className="size-1.5 rounded-full bg-muted-foreground/30 transition-colors group-hover:bg-[#FF5F57]"></div> 
+                      <div className="size-1.5 rounded-full bg-muted-foreground/30 transition-colors group-hover:bg-[#FEBC2E]"></div> 
+                      <div className="size-1.5 rounded-full bg-muted-foreground/30 transition-colors group-hover:bg-[#28C840]"></div> 
+                      </div> 
+                      <div className="mx-4 flex-1 truncate rounded bg-background/80 px-2 py-px text-center text-[10px] leading-tight text-muted-foreground"> https://guildfy.app </div>
+                    </div>
+
+                    <div className="relative aspect-video overflow-hidden bg-muted">
+                      <img src={p.image.src} alt={p.image.alt} className=""></img>
+                    </div>
+                  </div>
                 </div>
-                <span className="text-sm text-zinc-500">
-                  {p.year} · {p.weeks} weeks ·{" "}
-                  <span className="text-cyan-400/90">View details</span>
-                </span>
-              </button>
-            </li>
+                
+              </div>
+
+               {/* card content section   */}
+              <div className="flex-1 px-6 pb-6 pt-2 flex flex-col gap-3">
+                <div className="flex flex-col gap-1">
+                  
+                    <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+                      {p.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-400 line-clamp-2">
+                      {p.year}
+                    </p>                 
+                  
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.stack.map((s) => (
+                    <Badge
+                      key={s.tech}
+                      icon={s.icon}
+                      className="rounded-full border bg-muted/60 text-muted-foreground border border-border px-2.5 py-1"
+                    >
+                      {s.tech}
+                    </Badge>
+                  ))}
+                </div>
+                
+                <Typography variant="p" className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
+                  {p.solution}
+                </Typography>
+                <div className="flex items-center gap-1 text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors">
+                  <span>
+                    View details
+                  </span>
+                  <ArrowTopRightIcon/>
+                  
+                </div>
+              </div>
+
+            </article>
           ))}
-        </ul>
+        </div>
       </div>
 
       <ProjectDetailModal
