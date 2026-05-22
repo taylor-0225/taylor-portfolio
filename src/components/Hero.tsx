@@ -68,9 +68,9 @@ export function Hero() {
         <Typography className="sm:text-5xl lg:text-6xl" variant="h1">
             Engineering{" "}
             <span className="relative inline-block min-h-[1.15em] text-cyan-400">
-              {/* <Typography className="inline-block" variant="h1">
+              <Typography className="inline-block" variant="h1">
                 {displayText}
-              </Typography> */}
+              </Typography>
               <span
                 className="ml-0.5 inline-block font-light text-cyan-300/90"
                 style={{ opacity: showCursor ? 1 : 0 }}
